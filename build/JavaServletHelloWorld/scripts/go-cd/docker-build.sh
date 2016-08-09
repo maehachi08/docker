@@ -12,7 +12,7 @@
 
 # dockerビルド素材をコピー
 mkdir -p work/docker/hello
-cp -a git/docker/build/JavaServletHelloWorld/ work/docker/
+cp -a git/docker/build/JavaServletHelloWorld/* work/docker/
 
 # Javaアプリをコピー
 cp -a git/JavaServletHelloWorld/WEB-INF work/docker/hello/
