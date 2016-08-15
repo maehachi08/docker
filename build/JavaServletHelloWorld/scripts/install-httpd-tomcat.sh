@@ -22,3 +22,5 @@ yum install -y httpd
 
 ### tomcatをインストール
 yum install -y tomcat
+
+export HOGE='MOGE'
