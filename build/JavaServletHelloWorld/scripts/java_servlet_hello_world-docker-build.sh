@@ -27,11 +27,18 @@ cat << EOT > /tmp/container-definitions.json
       "name": "JavaTomcatDefinition",
       "image": "375144106126.dkr.ecr.us-east-1.amazonaws.com/java_tomcat-hello_world:latest",
       "cpu": 1,
-      "portMappings": [{
-        "containerPort": 80,
-        "hostPort": 80,
-        "protocol": "tcp"
-      }],
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        },
+        {
+          "containerPort": 8009,
+          "hostPort": 8009,
+          "protocol": "tcp"
+        }
+      ],
       "command": [ "/usr/bin/supervisord" ],
       "memory": 256,
       "essential": true
