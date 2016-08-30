@@ -45,9 +45,13 @@ EOT
 
 NEW_TASK=`aws ecs register-task-definition --cli-input-json file:///tmp/container-definitions.json |  jq -r .taskDefinition.taskDefinitionArn`
 aws ecs update-service --cluster JavaTomcatCluster --service JavaTomcatService --task-definition ${NEW_TASK} --desired-count 2
+aws ecs update-service --cluster JavaTomcatCluster --service JavaTomcatService2 --task-definition ${NEW_TASK} --desired-count 2
 
 
 # タスクの停止
-RUNNING_TASKS=`aws ecs list-tasks --cluster JavaTomcatCluster --service-name JavaTomcatService | jq -r '.taskArns[]'`
-aws ecs stop-task --cluster JavaTomcatCluster --task ${RUNNING_TASKS}
+RUNNING_TASKS1=`aws ecs list-tasks --cluster JavaTomcatCluster --service-name JavaTomcatService | jq -r '.taskArns[]'`
+RUNNING_TASKS2=`aws ecs list-tasks --cluster JavaTomcatCluster --service-name JavaTomcatService2 | jq -r '.taskArns[]'`
+
+aws ecs stop-task --cluster JavaTomcatCluster --task ${RUNNING_TASKS1}
+aws ecs stop-task --cluster JavaTomcatCluster --task ${RUNNING_TASKS2}
 
