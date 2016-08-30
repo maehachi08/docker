@@ -5,5 +5,11 @@ files:
     destination: /tmp/docker/
 hooks:
    AfterInstall:
-     - location: build/JavaServletHelloWorld/scripts/java_servlet_hello_world-docker-build.sh
+     - location: build/JavaServletHelloWorld/scripts/aws/docker-build-aws.sh
+       timeout: 1800
+     - location: build/JavaServletHelloWorld/scripts/aws/ecr-deploy-aws.sh
+       timeout: 1800
+     - location: build/JavaServletHelloWorld/scripts/aws/ecs-deploy-aws_task-count1.sh
+       timeout: 1800
+     - location: build/JavaServletHelloWorld/scripts/aws/ecs-deploy-aws_task-count2.sh
        timeout: 1800
