@@ -13,7 +13,7 @@ ADD etc/httpd/conf.d/tomcat.conf /etc/httpd/conf.d/tomcat.conf
 ADD var/www/html/index.html  /var/www/html/index.html
 
 # JavaServletのHelloWorldアプリを配布
-ADD hello /var/lib/tomcats/webapps/hello/
+ADD hello /var/lib/tomcat/webapps/hello/
 
 # supervisord でプロセス起動する
 ADD etc/supervisord.conf /etc/supervisord.conf
