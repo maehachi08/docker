@@ -10,6 +10,7 @@ RUN sh /tmp/install-httpd-tomcat.sh
 
 # tomcatサーバへプロキシするための設定ファイルを配布
 ADD etc/httpd/conf.d/tomcat.conf /etc/httpd/conf.d/tomcat.conf
+ADD etc/httpd/conf.d/limit.conf /etc/httpd/conf.d/limit.conf
 ADD var/www/html/index.html  /var/www/html/index.html
 
 # JavaServletのHelloWorldアプリを配布
